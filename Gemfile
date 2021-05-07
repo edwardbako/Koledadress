@@ -7,8 +7,9 @@ gem 'rails', '~> 6.0'
 
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'puma' # Use Puma as the app server
-gem 'will_paginate' # Pagination library
-gem 'will_paginate-bootstrap' # Bootstrap styles for pagination links
+gem 'kaminari'
+# gem 'will_paginate' # Pagination library
+# gem 'will_paginate-bootstrap' # Bootstrap styles for pagination links
 gem 'sass-rails' # Use SCSS for stylesheets
 gem 'slim-rails' # Slim markup for templates
 
@@ -32,6 +33,7 @@ gem 'spree', '~> 4.2'
 gem 'spree_auth_devise', '~> 4.3'
 gem 'spree_gateway', '~> 3.9'
 gem 'spree_i18n', '~> 5.0'
+gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
 # gem 'sassc', github: 'sass/sassc-ruby', branch: 'master' # only needed for MacOS and Ruby 3.0
 
 gem 'redis'
