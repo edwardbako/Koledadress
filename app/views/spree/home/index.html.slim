@@ -5,7 +5,7 @@
     data-srcset=image_source_set('homepage/main_banner')
     alt="Summer Collection"}
   .hero-content
-    .homepage-hero-image-text.mb-2.mx-auto.pb-3.pb-md-4
+    .homepage-hero-image-text.mb-2.mx-auto.pb-3.pb-md-4.text-white
       = Spree.t('summer_collection')
     div
       = link_to Spree.t('shop_now'), spree.products_path, class: 'btn btn-primary spree-btn px-5'
@@ -20,23 +20,23 @@
         .homepage-taxon-box-text
           h3
             = Spree.t(:men)
-      = link_to spree.nested_taxons_path('sportswear'), class: "homepage-taxon-box" do
+      = link_to spree.nested_taxons_path('women'), class: "homepage-taxon-box" do
         img{class="w-100 lazyload"
           data-src=asset_path('homepage/category_banner_lower.jpg')
           data-srcset=image_source_set('homepage/category_banner_lower')
-          alt="Sportswear"}
-        .homepage-taxon-box-text[role="img" aria-label="Sportswear"]
+          alt="Women"}
+        .homepage-taxon-box-text[role="img" aria-label="Women"]
           h3
-            = Spree.t(:sportswear)
+            = Spree.t(:woman)
     .col-6.d-flex.flex-column
-      = link_to spree.nested_taxons_path('women'), class: "homepage-taxon-box flex-grow-1" do
+      = link_to spree.nested_taxons_path('sportswear'), class: "homepage-taxon-box flex-grow-1" do
         img{class="w-100 lazyload"
           data-src=asset_path('homepage/big_category_banner.jpg')
           data-srcset=image_source_set('homepage/big_category_banner')
-          alt="Women"}
+          alt="Sportswear"}
         .homepage-taxon-box-text
           h3
-            = Spree.t(:woman)
+            = Spree.t(:sportswear)
 .my-3[data-product-carousel data-product-carousel-taxon-id="bestsellers"]
 .homepage-fashion-trends-box.mb-3
   .text-center
