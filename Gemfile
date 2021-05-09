@@ -6,7 +6,7 @@ ruby '3.0.0'
 gem 'rails', '~> 6.0'
 
 gem 'pg' # Use postgresql as the database for Active Record
-gem 'puma' # Use Puma as the app server
+gem 'puma', '~>4.0' # Use Puma as the app server
 gem 'kaminari'
 # gem 'will_paginate' # Pagination library
 # gem 'will_paginate-bootstrap' # Bootstrap styles for pagination links
