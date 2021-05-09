@@ -36,8 +36,8 @@ test:
   password: <%= Rails.application.credentials.dig(:postgresql, :test, :password) %>
 
 
-production:
+staging:
   <<: *default
-  database: koledadress_production
-  username: <%= Rails.application.credentials.dig(:postgresql, :production, :username) %>
-  password: <%= Rails.application.credentials.dig(:postgresql, :production, :password) %>
+  database: koledadress_staging
+  username: <%= Rails.application.credentials.dig(:postgresql, :staging, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgresql, :staging, :password) %>
