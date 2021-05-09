@@ -102,49 +102,47 @@ ru:
   navigation:
     - title: Женщинам
       subtitle: Категории
-      url: /t/women
+      url: /t/categories/women
       items:
         - :title: Юбки
-          :url: /t/women/skirts
+          :url: /t/categories/women/skirts
         - :title: Платья
-          :url: /t/women/dresses
+          :url: /t/categories/women/dresses
         - :title: Рубашки и Блузы
-          :url: /t/women/shirts-and-blouses
+          :url: /t/categories/women/shirts-and-blouses
         - :title: Свитера
-          :url: /t/women/sweaters
-        - :title: Топы и Футболки
-          :url: /t/women/tops-and-t-shirts
-        - :title: Куртки и Плащи
-          :url: /t/women/jackets-and-coats
+          :url: /t/categories/women/sweaters
+        - :title: Футболки
+          :url: /t/categories/women/t-shirts
       promo_banners:
         - subtitle: Новая Коллекция
           title: Лето 2021
-          url: /t/new-collection/summer-2021
+          url: /t/categories/new-collection/summer-2021
           image: 'meganav/promo_banner_left-first-category.jpg'
         - subtitle: Специальные предложения
           title: Скидки до 30%
-          url: /t/special-offers/30-percent-off
+          url: /t/categories/special-offers/30-percent-off
           image: 'meganav/promo_banner_right-first-category.jpg'
     - title: Мужчинам
       subtitle: Категории
-      url: /t/men
+      url: /t/categories/men
       items:
         - :title: Рубашки
-          :url: /t/men/shirts
+          :url: /t/categories/men/shirts
         - :title: Футболки
-          :url: /t/men/t-shirts
+          :url: /t/categories/men/t-shirts
         - :title: Свитера
-          :url: /t/men/sweaters
-        - :title: Куртки и Плащи
-          :url: /t/men/jackets-and-coats
+          :url: /t/categories/men/sweaters
+        - :title: Штаны
+          :url: /t/categories/men/pants
       promo_banners:
         - subtitle: Новая Коллекция
           title: Лето 2021
-          url: /t/new-collection/summer-2021
+          url: /t/categories/new-collection/summer-2021
           image: 'meganav/promo_banner_left-second-category.jpg'
         - subtitle: Специальные Предложения
           title: Скидки до 30%
-          url: /t/special-offers/30-percent-off
+          url: /t/categories/special-offers/30-percent-off
           image: 'meganav/promo_banner_right-second-category.jpg'
 #    - title: Спортивная Одежда
 #      subtitle: Категории

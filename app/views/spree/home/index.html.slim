@@ -12,7 +12,7 @@
 .container
   .row
     .col-6
-      = link_to spree.nested_taxons_path('men'), class: "homepage-taxon-box mb-3" do
+      = link_to spree.nested_taxons_path('categories/men'), class: "homepage-taxon-box mb-3" do
         img{class="w-100 lazyload"
           data-src=asset_path('homepage/category_banner_upper.jpg')
           data-srcset=image_source_set('homepage/category_banner_upper')
@@ -20,7 +20,7 @@
         .homepage-taxon-box-text
           h3
             = Spree.t(:men)
-      = link_to spree.nested_taxons_path('women'), class: "homepage-taxon-box" do
+      = link_to spree.nested_taxons_path('categories/women'), class: "homepage-taxon-box" do
         img{class="w-100 lazyload"
           data-src=asset_path('homepage/category_banner_lower.jpg')
           data-srcset=image_source_set('homepage/category_banner_lower')
@@ -29,7 +29,7 @@
           h3
             = Spree.t(:woman)
     .col-6.d-flex.flex-column
-      = link_to spree.nested_taxons_path('sportswear'), class: "homepage-taxon-box flex-grow-1" do
+      = link_to spree.nested_taxons_path('categories/sportswear'), class: "homepage-taxon-box flex-grow-1" do
         img{class="w-100 lazyload"
           data-src=asset_path('homepage/big_category_banner.jpg')
           data-srcset=image_source_set('homepage/big_category_banner')
@@ -46,13 +46,13 @@
       = Spree.t('fashion_trends')
     .homepage-fashion-trends-box-description-text.text-center.mb-3
       = Spree.t('fashion_trends_desc')
-    = link_to Spree.t('read_more'), spree.nested_taxons_path('trending'), class: 'btn px-5 spree-btn btn-outline-primary'
+    = link_to Spree.t('read_more'), spree.nested_taxons_path('categories/trending'), class: 'btn px-5 spree-btn btn-outline-primary'
 .mb-3[data-product-carousel data-product-carousel-taxon-id="trending"]
 
 .container
   .row
     .col-12.col-lg-6
-      = link_to spree.nested_taxons_path('streetstyle') do
+      = link_to spree.nested_taxons_path('categories/streetstyle') do
         .homepage-bottom-box.text-center.mb-3
           img{class="w-100 lazyload"
             data-src=asset_path('homepage/promo_banner_left.jpg')
@@ -64,7 +64,7 @@
             .homepage-bottom-box-inner-big-text
               = Spree.t('streetstyle')
     .col-12.col-lg-6
-      = link_to spree.nested_taxons_path('summer-sale') do
+      = link_to spree.nested_taxons_path('categories/summer-sale') do
         .homepage-bottom-box.text-center.mb-3
           img{class="w-100 lazyload"
             data-src=asset_path('homepage/promo_banner_right.jpg')
