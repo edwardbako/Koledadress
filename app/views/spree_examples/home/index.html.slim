@@ -1,0 +1,81 @@
+- @body_id = 'home'
+.homepage-hero-image.mb-3.position-relative
+  img{class="lazyload hero-image position-absolute"
+    data-src=asset_path('homepage/main_banner.jpg')
+    data-srcset=image_source_set('homepage/main_banner')
+    alt="Summer Collection"}
+  .hero-content
+    .homepage-hero-image-text.mb-2.mx-auto.pb-3.pb-md-4
+      = Spree.t('summer_collection')
+    div
+      = link_to Spree.t('shop_now'), spree.products_path, class: 'btn btn-primary spree_examples-btn px-5'
+.container
+  .row
+    .col-6
+      = link_to spree.nested_taxons_path('men'), class: "homepage-taxon-box mb-3" do
+        img{class="w-100 lazyload"
+          data-src=asset_path('homepage/category_banner_upper.jpg')
+          data-srcset=image_source_set('homepage/category_banner_upper')
+          alt="Men"}
+        .homepage-taxon-box-text
+
+        h3
+          = Spree.t(:men)
+    = link_to spree.nested_taxons_path('sportswear'), class: "homepage-taxon-box" do
+      img{class="w-100 lazyload"
+        data-src=asset_path('homepage/category_banner_lower.jpg')
+        data-srcset=image_source_set('homepage/category_banner_lower')
+        alt="Sportswear"}
+      .homepage-taxon-box-text[role="img" aria-label="Sportswear"]
+
+      h3
+        = Spree.t(:sportswear)
+.col-6.d-flex.flex-column
+  = link_to spree.nested_taxons_path('women'), class: "homepage-taxon-box flex-grow-1" do
+    img{class="w-100 lazyload"
+      data-src=asset_path('homepage/big_category_banner.jpg')
+      data-srcset=image_source_set('homepage/big_category_banner')
+      alt="Women"}
+    .homepage-taxon-box-text
+
+    h3
+      = Spree.t(:woman)
+.my-3[data-product-carousel data-product-carousel-taxon-id="bestsellers"]
+.homepage-fashion-trends-box.mb-3
+  .text-center
+    .homepage-fashion-trends-box-summer-text.mb-1
+      = Spree.t('summer_2021')
+    .homepage-fashion-trends-box-fashion-trends-text.mb-2
+      = Spree.t('fashion_trends')
+    .homepage-fashion-trends-box-description-text.text-center.mb-3
+      = Spree.t('fashion_trends_desc')
+    = link_to Spree.t('read_more'), spree.nested_taxons_path('trending'), class: 'btn px-5 spree_examples-btn btn-outline-primary'
+.mb-3[data-product-carousel data-product-carousel-taxon-id="trending"]
+.container
+  .row
+    .col-12.col-lg-6
+      = link_to spree.nested_taxons_path('streetstyle') do
+        .homepage-bottom-box.text-center.mb-3
+          img{class="w-100 lazyload"
+            data-src=asset_path('homepage/promo_banner_left.jpg')
+            data-srcset=image_source_set('homepage/promo_banner_left')
+            alt="NEW COLLECTION"}
+        .homepage-bottom-box-inner[role="img" aria-label="New Collection"]
+
+        .homepage-bottom-box-inner-small-text
+          = Spree.t('new_collection')
+        .homepage-bottom-box-inner-big-text
+          = Spree.t('streetstyle')
+.col-12.col-lg-6
+  = link_to spree.nested_taxons_path('summer-sale') do
+    .homepage-bottom-box.text-center.mb-3
+      img{class="w-100 lazyload"
+        data-src=asset_path('homepage/promo_banner_right.jpg')
+        data-srcset=image_source_set('homepage/promo_banner_right')
+        alt="Summer Sale"}
+    .homepage-bottom-box-inner
+
+    .homepage-bottom-box-inner-small-text
+      = Spree.t('summer_sale')
+    .homepage-bottom-box-inner-big-text
+      = Spree.t('up_to_60')

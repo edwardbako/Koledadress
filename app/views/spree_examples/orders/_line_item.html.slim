@@ -1,0 +1,22 @@
+- variant = line_item.variant
+= order_form.fields_for :line_items, line_item do |item_form|
+  .d-table-row.shopping-cart-item
+
+  .d-table-cell.shopping-cart-item-image[data-hook="cart_item_image"]
+    = link_to product_image(variant), spree.product_path(variant.product)
+  .d-table-cell.shopping-cart-item-description[data-hook="cart_item_description"]
+
+  h2.item-title
+    = link_to line_item.name, spree.product_path(variant.product)
+  - if line_item.insufficient_stock?
+    span.out-of-stock
+      = Spree.t(:out_of_stock)
+      |   
+      br
+  ul.item-details-list[data-hook="line_item_description"]
+    - variant.option_values.sort do |ov| ov.option_type.position }.each do |ov|
+      li.item-details
+        - # TODO: rework option values so options_text method can be used here
+        = "#{ov.option_type.presentation}: #{ov.name.titleize}"
+  = render 'line_item_data', view: 'mobile', line_item: line_item, item_form: item_form
+  = render 'line_item_data', view: 'desktop', line_item: line_item, item_form: item_form

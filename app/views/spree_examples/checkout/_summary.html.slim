@@ -1,0 +1,76 @@
+.checkout-content-summary
+  h3.text-uppercase.text-center.checkout-content-summary-header
+    = Spree.t(:order_summary)
+  .w-100.text-uppercase.checkout-content-summary-table[data-hook="order_summary"]
+    .d-table-cell
+      = Spree.t(:subtotal)
+      | :
+    .d-table-cell.text-right
+      = order.display_item_total.to_html
+    - if order.line_item_adjustments.nonzero.exists?
+      - order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments|
+        .d-table-cell
+          = label
+        .d-table-cell.text-right
+          = Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html
+    - order.all_adjustments.nonzero.tax.eligible.group_by(&:label).each do |label, adjustments|
+      .d-table-cell
+        = label
+      - tax_total = Spree::Money.new(adjustments.sum(&:amount), currency: order.currency)
+      |  <div class="d-table-cell text-right" data-hook='tax-total' data-currency='
+      = Money::Currency.find(order.currency).symbol
+      | ' data-non-shipment-tax='
+      = adjustments.reject{ |adj| adj.adjustable_type== 'Spree::Shipment'}.sum(&:amount)
+      | ' thousands-separator='
+      = tax_total.thousands_separator
+      | ' decimal-mark='
+      = tax_total.decimal_mark
+      | ' precision='
+      = Money::Currency.find(order.currency).exponent
+      | '> 
+      = tax_total.to_html
+  - if order.passed_checkout_step?("address") && order.shipments.any?
+    - if order.has_free_shipping?
+      .d-table-cell
+        = Spree.t(:shipping)
+        | :
+      .d-table-cell.text-right[data-hook="is-free-shipping"]
+        = Spree.t(:free)
+    - else
+      .d-table-cell
+        = Spree.t(:shipping)
+        | :
+      - shipping_total = Spree::Money.new(order.shipments.to_a.sum(&:cost), currency: order.currency)
+      .d-table-cell.text-right[data-hook="shipping-total" data-currency="<ruby code=\"= Money::Currency.find(order.currency).symbol\"></ruby>" thousands-separator="<ruby code=\"= shipping_total.thousands_separator\"></ruby>" decimal-mark="<ruby code=\"= shipping_total.decimal_mark\"></ruby>" precision="<ruby code=\"= Money::Currency.find(order.currency).exponent\"></ruby>"]
+        = shipping_total.to_html
+      - if order.shipment_adjustments.nonzero.exists?
+        - order.shipment_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments|
+          .d-table-cell
+            = label
+            | :
+          .d-table-cell.text-right
+            = Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html
+  - if order.adjustments.nonzero.eligible.exists?
+    - order.adjustments.nonzero.eligible.each do |adjustment|
+      - next if (adjustment.source_type == 'Spree::TaxRate') and (adjustment.amount.zero?)
+      .d-table-cell.total
+        = adjustment.label
+        | :
+      .d-table-cell.total.text-right
+        = adjustment.display_amount.to_html
+  .checkout-content-summary-table-order-total
+    .d-table-cell
+      = Spree.t(:total)
+      | :
+    .d-table-cell.text-right
+      |  <span id='summary-order-total' data-currency="
+      = Money::Currency.find(order.currency).symbol
+      | "> 
+      = order.display_total.to_html
+  - if order.using_store_credit?
+    .d-table-cell
+      = Spree.t(:store_credit_name)
+      | :
+    .d-table-cell.text-right
+      span#summary-store-credit
+        = order.display_total_applied_store_credit.to_html

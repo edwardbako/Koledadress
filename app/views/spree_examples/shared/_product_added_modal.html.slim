@@ -1,0 +1,46 @@
+.modal.product-added-modal[tabindex="-1" role="dialog" aria-hidden="true"]
+  .modal-dialog.modal-lg[role="document"]
+    .modal-content
+      .modal-header.pb-0.px-4.pt-4.border-0
+        button.close[type="button" data-dismiss="modal" aria-label="Close"]
+          span[aria-hidden="true"]
+            = icon(name: 'close',
+            -                      classes: 'd-block d-lg-none',
+            -                      width: 16,
+            -                      height: 16)
+            = icon(name: 'close',
+            -                      classes: 'd-none d-lg-block',
+            -                      width: 30,
+            -                      height: 30)
+      .modal-body.p-4
+        .container-fluid
+          .row.justify-content-center.align-items-center
+            .col-md-2.d-flex.w-auto
+              = icon(name: 'check-mark-circle',
+              -                        classes: 'd-block d-lg-none mx-auto product-added-modal-check-mark',
+              -                        width: 38,
+              -                        height: 38)
+              = icon(name: 'check-mark-circle',
+              -                        classes: 'd-none d-lg-block mx-auto product-added-modal-check-mark',
+              -                        width: 68,
+              -                        height: 68)
+            .col-8.col-sm-6.col-lg-4.product-added-modal-message
+              = Spree.t(:added_to_cart)
+          .row.pt-5.justify-content-center.align-items-center.product-added-modal-product
+            .col-4.col-sm-2.product-added-modal-product-image-container
+              |  <img class="product-added-modal-product-image-container-image" src="data:," alt="
+              = @product&.name
+              | "> 
+            .col-8.col-sm-6.col-lg-4.py-1.product-added-modal-product-details
+              .product-added-modal-product-details-name
+              .product-added-modal-product-details-price
+      .modal-footer.p-4.pb-5.border-0
+        .container-fluid
+          .row.pb-4.justify-content-center
+            .col-12.col-lg-8
+              = link_to spree.checkout_path, class: 'btn btn-primary w-100 font-weight-bold text-uppercase product-added-modal-button', method: :get do
+                = Spree.t(:checkout)
+          .row.justify-content-center
+            .col-12.col-lg-8
+              = link_to spree.cart_path, class: 'btn btn-outline-primary w-100 font-weight-bold text-uppercase product-added-modal-button' do
+                = Spree.t('pdp.view_cart')

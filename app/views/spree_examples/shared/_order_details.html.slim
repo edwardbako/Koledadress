@@ -1,0 +1,95 @@
+.checkout-confirm-order-details.w-100.d-flex.flex-wrap[data-hook]
+  .checkout-confirm-delivery-informations.text-left.mt-3
+    .d-lg-none.checkout-confirm-delivery-informations-header
+      = Spree.t(:delivery_information)
+    dl
+      - if order.has_step?("address")
+        div[data-hook="order-ship-address"]
+
+        dt.text-uppercase
+          = Spree.t(:shipping_address)
+          = checkout_edit_link
+        = render 'spree/shared/address', address: order.ship_address
+  div[data-hook="order-bill-address"]
+    dt.text-uppercase
+      = Spree.t(:billing_address)
+      = checkout_edit_link
+    = render 'spree/shared/address', address: order.bill_address
+  - if order.has_step?("delivery")
+    div[data-hook="order-shipment"]
+
+    dt.text-uppercase
+      = Spree.t(:shipping)
+      = checkout_edit_link('delivery')
+    - @order.shipments.valid.each do |shipment|
+      dd
+        = shipment.shipping_method&.name
+    = render 'spree/shared/shipment_tracking', order: order if order.shipped?
+- if order.has_step?("payment")
+  div[data-hook="order-payment"]
+
+  dt.text-uppercase
+    = Spree.t(:payment)
+    = checkout_edit_link('payment')
+  dd
+    = render collection: @order.payments.valid, partial: 'spree/shared/payment'
+  dd
+    - if !@order.complete? && @order.using_store_credit?
+      = button_tag Spree.t('store_credit.remove'), name: 'remove_store_credit', class: 'continue btn'
+.checkout-confirm-order-details-line-items.d-flex.flex-column.mt-5.mr-md-4
+  .checkout-confirm-order-details-line-items-header.d-none.d-sm-block.d-lg-none.align-self-start.mb-3
+    = Spree.t(:products)
+  .d-table[data-hook="order_details"]
+    .d-none.d-lg-table-row.text-secondary.text-uppercase[data-hook="order_details_line_items_headers"]
+      p.d-table-cell.pb-1
+        = Spree.t(:product)
+      p.d-table-cell.pb-1
+        = Spree.t(:price)
+      p.d-table-cell.pb-1
+        = Spree.t(:quantity)
+      p.d-table-cell.pb-1
+        = Spree.t(:total)
+    - @order.line_items.each do |item|
+      .checkout-confirm-order-details-line-items-line-item.w-100.d-table-row[data-hook="order_details_line_item_row"]
+
+      .checkout-confirm-order-details-line-items-line-item-name.d-table-cell.align-middle.py-3.py-sm-4
+
+      .d-flex.align-items-lg-center
+
+      .checkout-confirm-order-details-line-items-line-item-name-image[data-hook="order_item_image"]
+        = link_to product_image(item.variant), spree.product_path(item.product)
+      .d-flex.flex-column.mt-2.mt-lg-0[data-hook="order_item_description"]
+
+      div[data-hook="order_item_name"]
+        = link_to item.name, spree.product_path(item.product), class: 'checkout-confirm-order-details-line-items-line-item-name-link'
+      - unless item.variant.is_master?
+        ul.checkout-confirm-order-details-line-items-line-item-name-options.text-uppercase.list-unstyled.mb-0
+          - item.variant.option_values.sort do |ov| ov.option_type.position }.each do |ov|
+            li
+              - # TODO: rework option values so options_text method can be used here
+              = "#{ov.option_type.presentation}: #{ov.name.titleize}"
+      .d-lg-none[data-hook="order_item_price"]
+
+      .font-weight-bold
+        = item.single_money.to_html
+  .d-lg-none[data-hook="order_item_qty"]
+    span
+      = Spree.t(:quantity)
+      | :
+    span.font-weight-bold
+      = item.quantity
+.checkout-confirm-order-details-line-items-line-item-price.d-none.d-lg-table-cell.align-middle.py-4[data-hook="order_item_price"]
+  div
+    = item.single_money.to_html
+.checkout-confirm-order-details-line-items-line-item-quantity.d-none.d-lg-table-cell.align-middle.py-4[data-hook="order_item_qty"]
+  span.checkout-confirm-order-details-line-items-line-item-quantity-val.d-lg-block
+    = item.quantity
+.checkout-confirm-order-details-line-items-line-item-total.d-none.d-lg-table-cell.align-middle.py-4[data-hook="order_item_total"]
+  div
+    = item.display_total.to_s
+#checkout-summary.mt-5[data-hook="checkout_summary_box"]
+  = render partial: 'spree/checkout/summary', locals: { order: @order }
+  - unless @order.complete?
+    div[data-hook="buttons"]
+      - submit_label_key = @order.confirm? ? :place_order : :save_and_continue
+      = submit_tag Spree.t(submit_label_key), class: 'btn btn-primary text-uppercase font-weight-bold w-100 checkout-content-save-continue-button'

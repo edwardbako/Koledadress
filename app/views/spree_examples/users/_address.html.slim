@@ -1,0 +1,14 @@
+address.mb-0.col-12
+  - if address.label&.present?
+    h4.m-0.truncate
+      = address.label
+  span.account-page-user-full-name
+    = address.full_name
+  div
+    = "#{address.address1} #{address.address2}"
+    | , 
+  div
+    = "#{address.city}, #{address.state_text} #{address.zipcode}"
+    | , 
+  div
+    = address.country.name

@@ -1,0 +1,10 @@
+.container-fluid.plp-filter-and-sort-horizontal-border.d-lg-none.mb-3
+  .row
+    #filter-by-overlay-show-button.col-6.plp-filter-and-sort-vertical-border
+      .plp-filter-and-sort-buttons
+        = Spree.t('plp.filter_by')
+        = inline_svg_tag 'arrow-right.svg', class: "plp-icon"
+    #sort-by-overlay-show-button.col-6
+      .plp-filter-and-sort-buttons
+        = Spree.t("plp.#{ params[:sort_by].blank? ? 'sort_by': params[:sort_by].gsub('-', '_') }")
+        = inline_svg_tag 'arrow-right.svg', class: "plp-icon"

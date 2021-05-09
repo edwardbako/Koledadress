@@ -1,0 +1,7 @@
+.form-group.mb-5
+  = f.email_field :email, class: 'spree_examples-flat-input', placeholder: Spree.t(:email)
+.form-group.mb-4
+  = f.password_field :password, class: 'spree_examples-flat-input', placeholder: Spree.t(:password)
+.form-group.mb-5
+  = f.password_field :password_confirmation, class: 'spree_examples-flat-input', placeholder: Spree.t(:confirm_password)
+div[data-hook="signup_below_password_fields"]

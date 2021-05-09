@@ -1,0 +1,4 @@
+- if defined?(spree_signup_path)
+  h3.spree-mb-large.spree-mt-large.spree-header
+    = Spree.t('dont_have_account')
+  = link_to Spree.t(:sign_up), spree_signup_path, class: "btn btn-block btn-outline-primary spree_examples-btn #{registration_button}"

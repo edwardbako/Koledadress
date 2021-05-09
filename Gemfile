@@ -29,11 +29,11 @@ gem 'russian' # I18n
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'spree', '~> 4.2'
-gem 'spree_auth_devise', '~> 4.3'
-gem 'spree_gateway', '~> 3.9'
-gem 'spree_i18n', '~> 5.0'
-gem 'spree_globalize', github: 'spree-contrib/spree_globalize'
+gem 'spree'
+gem 'spree_auth_devise'
+gem 'spree_gateway'
+gem 'spree_i18n'
+# gem 'spree_globalize', github: 'spree_examples-contrib/spree_globalize'
 # gem 'sassc', github: 'sass/sassc-ruby', branch: 'master' # only needed for MacOS and Ruby 3.0
 
 gem 'redis'

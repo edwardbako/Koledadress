@@ -1,0 +1,14 @@
+- case type
+
+- when "not-available-in-currency"
+  span.add-to-cart-form-general-availability-value.add-to-cart-form-general-availability-value--danger
+    = Spree.t(:product_not_available_in_this_currency)
+- when "in-stock"
+  span.add-to-cart-form-general-availability-value
+    = Spree.t(:in_stock)
+- when "backorderable"
+  span.add-to-cart-form-general-availability-value.add-to-cart-form-general-availability-value--warning
+    = Spree.t(:backordered_info)
+- when "out-of-stock"
+  span.add-to-cart-form-general-availability-value.add-to-cart-form-general-availability-value--danger
+    = Spree.t(:out_of_stock)

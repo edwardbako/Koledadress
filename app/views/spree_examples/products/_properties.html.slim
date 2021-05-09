@@ -1,0 +1,12 @@
+- unless @product_properties.blank?
+  h3.pt-4.font-weight-bold.text-uppercase.product-details-subtitle
+    = Spree.t(:details)
+  ul#product-properties.m-0.list-unstyled.product-properies[data-hook]
+    - @product_properties.each do |product_property|
+      - if product_property.show_property?
+        li
+          span.font-weight-bold.text-break
+            = product_property.property.presentation
+            | :
+          span.text-break
+            = product_property.value

@@ -1,0 +1,29 @@
+- address_id = address_type.chars.first
+- Spree::Address::ADDRESS_FIELDS.each do |field|
+  - if field == "country"
+    |  <div class="form-group checkout-content-inner-field" id="
+    = "#{address_id}country"
+    | "> <div id="
+    = "#{address_id}country-selection"
+    | " class="d-block position-relative has-float-label"> 
+    = address_form.collection_select :country_id, available_countries, :id, :name,
+    -                                            { prompt: Spree.t(:country).upcase },
+    -                                            { class: 'form-control spree_examples-flat-select',
+    -                                              aria: { label: Spree.t(:country) } }
+    = image_tag 'arrow.svg', class: 'position-absolute spree_examples-flat-select-arrow'
+    = address_form.label(Spree.t(:country), Spree.t(:country).upcase, class:'text-uppercase')
+  - elsif field == "state"
+    .form-group.mb-4
+      = address_field(address_form, :state, address_id) { address_state(address_form, address.country, address_id) } if Spree::Config[:address_requires_state]
+  - elsif field == "zipcode"
+    .form-group.mb-4
+      = address_field(address_form, :zipcode, address_id) { address_zipcode(address_form, address.country, address_id) }
+  - else
+    - next if field == "company" && !Spree::Config[:company]
+    - next if field == "alternative_#{address_id}_phone" && !Spree::Config["alternative_#{address_id}_phone"]
+    .form-group.mb-4
+      = address_field(address_form, field.to_sym, address_id)
+p.text-right.text-uppercase.mb-5.checkout-content-inner-field
+  span#required_marker
+    = Spree.t(:required)
+  = Spree.t(:required_fields)

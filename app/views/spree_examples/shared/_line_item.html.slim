@@ -1,0 +1,30 @@
+.checkout-confirm-order-details-line-items-line-item.w-100.d-table-row
+  .checkout-confirm-order-details-line-items-line-item-name.d-table-cell.align-middle.py-3.py-sm-4
+    .d-flex.align-items-lg-center
+      = link_to product_image(line_item.variant), spree.product_path(line_item.product)
+      .d-flex.flex-column.mt-2.mt-lg-0
+        div
+          = link_to line_item.name, spree.product_path(line_item.product)
+        ul.checkout-confirm-order-details-line-items-line-item-name-options.text-uppercase.list-unstyled.mb-0
+          - line_item.variant.option_values.sort do |ov| ov.option_type.position }.each do |ov|
+            li
+              - # TODO: rework option values so options_text method can be used here
+              = "#{ov.option_type.presentation}: #{ov.name.titleize}"
+        .d-lg-none
+          .font-weight-bold
+            = line_item.single_money.to_html
+        .d-lg-none
+          span
+            = Spree.t(:quantity)
+            | :
+          span.font-weight-bold
+            = line_item.quantity
+  .checkout-confirm-order-details-line-items-line-item-price.d-none.d-lg-table-cell.align-middle.py-4
+    div
+      = line_item.single_money.to_html
+  .checkout-confirm-order-details-line-items-line-item-quantity.d-none.d-lg-table-cell.align-middle.py-4
+    span.checkout-confirm-order-details-line-items-line-item-quantity-val.d-lg-block
+      = line_item.quantity
+  .checkout-confirm-order-details-line-items-line-item-total.d-none.d-lg-table-cell.align-middle.py-4
+    div
+      = line_item.display_total.to_s

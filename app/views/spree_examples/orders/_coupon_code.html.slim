@@ -1,0 +1,17 @@
+- if promotion.nil?
+  .shopping-cart-coupon-code.<ruby.code="=.classes"></ruby>[data-hook="coupon_code"]
+
+  .input-group
+    = order_form.text_field :coupon_code, size: '30', class: 'form-control border-right-0', placeholder: Spree.t('cart_page.add_promo_code'), aria: { label: Spree.t('cart_page.add_promo_code') }
+  .input-group-append
+    = button_tag '+', name: '', id: 'shopping-cart-coupon-code-button', class: 'btn border-left-0'
+- else
+  .shopping-cart-coupon-code.<ruby.code="=.classes"></ruby>[data-hook="coupon_code"]
+
+  .input-group
+    = order_form.text_field :applied_coupon_code, name: '', size: '30', class: 'form-control border-right-0 disabled',
+    -         value: Spree.t(:promotion_label, name: promotion.name),
+    -         data: { code: promotion.code }
+  .input-group-append
+    = button_tag name: '', id: 'shopping-cart-remove-coupon-code-button', class: 'btn border-left-0 remove' do
+      = icon(name: 'close', width: 15, height: 14)

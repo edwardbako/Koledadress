@@ -1,0 +1,42 @@
+#shipping-method[data-hook]
+  div[data-hook="shipping_method_inner"]
+    #methods
+      = form.fields_for :shipments do |ship_form|
+        .shipment
+
+        h4.text-uppercase.checkout-content-header.checkout-content-shipping-methods-header.mb-1
+          = Spree.t('checkout_page.delivery_method')
+        #shipToLocation.mb-4.text-uppercase
+          = Spree.t(:ship_to)
+          span.text-muted
+            = @order.shipping_address.address1
+          |  - 
+          - if @order.shipping_address.zipcode.present?
+            span.text-muted
+              = @order.shipping_address.zipcode
+            |  - 
+          span.text-muted
+            = @order.shipping_address.country_iso
+        ul.checkout-content-shipping-methods-list
+          - ship_form.object.shipping_rates.each do |rate|
+            li.shipping-method
+
+            label.spree-radio-label
+              = ship_form.radio_button :selected_shipping_rate_id,
+              -                     rate.id,
+              -                     data: {
+              -                       behavior: 'shipping-method-selector',
+              -                       cost: rate.display_cost,
+              -                       tax: rate.display_tax_amount
+              -                     }
+              span.spree-radio-label-custom-input
+              span.rate-name
+                = rate.name
+            p.rate-cost
+              = rate.display_cost
+  - if Spree::Config[:shipping_instructions]
+    #minstrs[data-hook]
+
+    h4.h5
+      = Spree.t(:shipping_instructions)
+    = form.text_area :special_instructions, cols: 40, rows: 4, class: "form-control"

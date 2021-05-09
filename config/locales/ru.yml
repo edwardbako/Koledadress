@@ -1,0 +1,65 @@
+ru:
+  hello: "Здравствуйте!"
+
+  spree:
+    nav_bar:
+      desktop: "Десктоп"
+      admin_panel: "Панель администратора"
+      show_menu: "Показать меню"
+      go_to_previous_menu: "Предыдущее меню"
+    go_to_category: "Перейти к категории"
+    internationalization: "Языки"
+    select_a_date: "Выберите дату"
+    select_an_option: "Выберите вариант"
+    cart_page:
+      add_promo_code: "Введите Промо-Код"
+      product: "Товар"
+      quantity: "Количество"
+      checkout: "Подтвердить"
+    checkout_page:
+      header: "Подтверждение"
+      checkout_navigation: "Подтверждение заказа"
+      main_navigation: "Основная навигация"
+      back_to_cart: "Вернуться в Корзину"
+    account_info: "Информация об Аккаунте"
+    required_fields: " "
+    shop_now: "Купить"
+    summer_collection: "Летняя Коллекция"
+    men: "Мужчинам"
+    woman: "Женщинам"
+    sportswear: "Спортивная Одежда"
+    summer_2021: "Лето 2021"
+    fashion_trends: "МОДНЫЕ ТРЕНДЫ"
+    fashion_trends_desc: "Хотите стильно продемонстрировать самую модную тенденцию этого сезона?
+      Это лучшие модели Недель моды лета 2021, которые появятся у нас в этом сезоне."
+    new_collection: "Новая коллекция"
+    streetstyle: "Уличный стиль"
+    summer_sale: "Летняя распродажа"
+    up_to_60: "Скидки 60%"
+    read_more: "Смотреть еще"
+    designed_by: "Разработано"
+    all_rights_reserved: "Все права защищены"
+    availability: "Наличие"
+    in_stock: "Есть на складе"
+    backordered_info: "По заказу"
+    call_us_now: "Позвонить нам: "
+    added_to_cart: "Добавлено в корзину"
+    pdp:
+      view_cart: "Просмотреть корзину"
+    plp:
+      price: "Цена"
+      no_results: "Нет результатов"
+      not_found_filters1: "По заданным параметрам ничего не найдено."
+      not_found_filters2: "Уточните, пожалуйста, параметры поиска."
+      sort_by: "Сортировать"
+      default: "По умолчанию"
+      newest_first: "Сначала Новые"
+      price_high_to_low: "По убыванию цены"
+      price_low_to_high: "По возрастанию цены"
+      filter_by: "Фильтровать"
+
+
+  activerecord:
+    attributes:
+      spree/product:
+        less_than: "Меньше"

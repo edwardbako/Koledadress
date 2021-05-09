@@ -1,0 +1,40 @@
+| <div class="checkout-confirm-delivery-informations text-left mt-3 
+= class_name
+| "> 
+.d-lg-none.checkout-confirm-delivery-informations-header
+  = Spree.t(:delivery_information)
+dl
+  - if order.has_step?("address")
+    div[data-hook="order-ship-address"]
+
+    dt.text-uppercase
+      = Spree.t(:shipping_address)
+      = checkout_edit_link
+    = render 'spree/shared/address', address: order.ship_address
+    div[data-hook="order-bill-address"]
+
+    dt.text-uppercase
+      = Spree.t(:billing_address)
+      = checkout_edit_link
+    = render 'spree/shared/address', address: order.bill_address
+  - if order.has_step?("delivery")
+    div[data-hook="order-shipment"]
+
+    dt.text-uppercase
+      = Spree.t(:shipping)
+      = checkout_edit_link('delivery')
+    - @order.shipments.valid.each do |shipment|
+      dd
+        = shipment.shipping_method&.name
+    = render 'spree/shared/shipment_tracking', order: order if order.shipped?
+  - if order.has_step?("payment")
+    div[data-hook="order-payment"]
+
+    dt.text-uppercase
+      = Spree.t(:payment)
+      = checkout_edit_link('payment')
+    dd
+      = render collection: @order.payments.valid, partial: 'spree/shared/payment'
+    dd
+      - if @order.using_store_credit?
+        = button_tag Spree.t('store_credit.remove'), name: 'remove_store_credit', class: 'continue btn'

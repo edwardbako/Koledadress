@@ -1,0 +1,10 @@
+.container
+  .not-found-page.text-center.pt-5
+    h1.display-1.text-primary
+      | 404
+    p
+      strong
+        = Spree.t(:page_not_found)
+    p
+      = Spree.t(:get_back_to_the)
+      = link_to Spree.t(:home_page), spree.root_url

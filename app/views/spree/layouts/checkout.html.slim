@@ -1,0 +1,19 @@
+doctype html
+html lang=I18n.locale
+  head[data-hook="inside_head"]
+    = render partial: 'spree/shared/head'
+
+  body class=body_class id="#{@body_id || 'default'}" data-hook="body"
+    = render partial: 'spree/shared/checkout_header'
+
+    #overlay.overlay
+
+    div[data-hook]
+      main#content[data-hook]
+        = flash_messages
+        = yield
+      = yield :templates
+    footer
+
+  = render 'spree/shared/copyright'
+  = render 'spree/shared/translations'

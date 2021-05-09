@@ -1,0 +1,39 @@
+#sort-by-overlay.plp-overlay[style="display: none;"]
+  .container
+    .plp-overlay-header
+      = Spree.t('plp.sort_by')
+      = inline_svg_tag 'close.svg', id: 'sort-by-overlay-hide-button'
+  .plp-overlay-header-border
+  ul.pt-1.plp-overlay-ul
+    |  <li class="plp-overlay-ul-li 
+    = 'plp-overlay-ul-li--active' if params[:sort_by].blank?
+    | "> <a class="p-3 d-block" href="
+    = url_for(permitted_params.merge(sort_by: nil))
+    | "> 
+    .plp-empty-dot
+      .filled-dot
+    = Spree.t('plp.default')
+    |  <li class="plp-overlay-ul-li 
+    = 'plp-overlay-ul-li--active' if params[:sort_by] == 'newest-first'
+    | "> <a class="p-3 d-block" href="
+    = url_for(permitted_params.merge(sort_by: 'newest-first'))
+    | "> 
+    .plp-empty-dot
+      .filled-dot
+    = Spree.t('plp.newest_first')
+    |  <li class="plp-overlay-ul-li 
+    = 'plp-overlay-ul-li--active' if params[:sort_by] == 'price-high-to-low'
+    | "> <a class="p-3 d-block" href="
+    = url_for(permitted_params.merge(sort_by: 'price-high-to-low'))
+    | "> 
+    .plp-empty-dot
+      .filled-dot
+    = Spree.t('plp.price_high_to_low')
+    |  <li class="plp-overlay-ul-li 
+    = 'plp-overlay-ul-li--active' if params[:sort_by] == 'price-low-to-high'
+    | "> <a class="p-3 d-block" href="
+    = url_for(permitted_params.merge(sort_by: 'price-low-to-high'))
+    | "> 
+    .plp-empty-dot
+      .filled-dot
+    = Spree.t('plp.price_low_to_high')

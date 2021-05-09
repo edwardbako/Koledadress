@@ -46,25 +46,25 @@ default:
           title: Get up to 30% off
           url: /t/special-offers/30-percent-off
           image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Sportswear
-      subtitle: Categories
-      url: /t/sportswear
-      items:
-        - :title: Tops
-          :url: /t/sportswear/tops
-        - :title: Sweatshirts
-          :url: /t/sportswear/sweatshirts
-        - :title: Pants
-          :url: /t/sportswear/pants
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2021
-          url: /t/new-collection/summer-2021
-          image: 'meganav/promo_banner_left-third-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-percent-off
-          image: 'meganav/promo_banner_right-third-category.jpg'
+#    - title: Sportswear
+#      subtitle: Categories
+#      url: /t/sportswear
+#      items:
+#        - :title: Tops
+#          :url: /t/sportswear/tops
+#        - :title: Sweatshirts
+#          :url: /t/sportswear/sweatshirts
+#        - :title: Pants
+#          :url: /t/sportswear/pants
+#      promo_banners:
+#        - subtitle: New collection
+#          title: Summer 2021
+#          url: /t/new-collection/summer-2021
+#          image: 'meganav/promo_banner_left-third-category.jpg'
+#        - subtitle: Special Offers
+#          title: Get up to 30% off
+#          url: /t/special-offers/30-percent-off
+#          image: 'meganav/promo_banner_right-third-category.jpg'
 fr:
   navigation:
     - title: Femmes
@@ -87,13 +87,81 @@ fr:
         - subtitle: Offres spéciales
           url: /fr/t/special-offers/30-percent-off
           image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Vêtements de sport
-      url: /fr/t/sportswear
+#    - title: Vêtements de sport
+#      url: /fr/t/sportswear
+#      promo_banners:
+#        - subtitle: Nouvelle collection
+#          title: Été 2021
+#          url: /fr/t/new-collection/summer-2021
+#          image: 'meganav/promo_banner_left-third-category.jpg'
+#        - subtitle: Offres spéciales
+#          url: /fr/t/special-offers/30-percent-off
+#          image: 'meganav/promo_banner_right-third-category.jpg'
+
+ru:
+  navigation:
+    - title: Женщинам
+      subtitle: Категории
+      url: /t/women
+      items:
+        - :title: Юбки
+          :url: /t/women/skirts
+        - :title: Платья
+          :url: /t/women/dresses
+        - :title: Рубашки и Блузы
+          :url: /t/women/shirts-and-blouses
+        - :title: Свитера
+          :url: /t/women/sweaters
+        - :title: Топы и Футболки
+          :url: /t/women/tops-and-t-shirts
+        - :title: Куртки и Плащи
+          :url: /t/women/jackets-and-coats
       promo_banners:
-        - subtitle: Nouvelle collection
-          title: Été 2021
-          url: /fr/t/new-collection/summer-2021
-          image: 'meganav/promo_banner_left-third-category.jpg'
-        - subtitle: Offres spéciales
-          url: /fr/t/special-offers/30-percent-off
-          image: 'meganav/promo_banner_right-third-category.jpg'
+        - subtitle: Новая Коллекция
+          title: Лето 2021
+          url: /t/new-collection/summer-2021
+          image: 'meganav/promo_banner_left-first-category.jpg'
+        - subtitle: Специальные предложения
+          title: Скидки до 30%
+          url: /t/special-offers/30-percent-off
+          image: 'meganav/promo_banner_right-first-category.jpg'
+    - title: Мужчинам
+      subtitle: Категории
+      url: /t/men
+      items:
+        - :title: Рубашки
+          :url: /t/men/shirts
+        - :title: Футболки
+          :url: /t/men/t-shirts
+        - :title: Свитера
+          :url: /t/men/sweaters
+        - :title: Куртки и Плащи
+          :url: /t/men/jackets-and-coats
+      promo_banners:
+        - subtitle: Новая Коллекция
+          title: Лето 2021
+          url: /t/new-collection/summer-2021
+          image: 'meganav/promo_banner_left-second-category.jpg'
+        - subtitle: Специальные Предложения
+          title: Скидки до 30%
+          url: /t/special-offers/30-percent-off
+          image: 'meganav/promo_banner_right-second-category.jpg'
+#    - title: Спортивная Одежда
+#      subtitle: Категории
+#      url: /t/sportswear
+#      items:
+#        - :title: Топы
+#          :url: /t/sportswear/tops
+#        - :title: Толстовки
+#          :url: /t/sportswear/sweatshirts
+#        - :title: Штаны
+#          :url: /t/sportswear/pants
+#      promo_banners:
+#        - subtitle: Новая коллекция
+#          title: Лето 2021
+#          url: /t/new-collection/summer-2021
+#          image: 'meganav/promo_banner_left-third-category.jpg'
+#        - subtitle: Специальные Предложения
+#          title: Скидки до 30%
+#          url: /t/special-offers/30-percent-off
+#          image: 'meganav/promo_banner_right-third-category.jpg'

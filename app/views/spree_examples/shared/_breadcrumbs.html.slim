@@ -1,0 +1,15 @@
+nav#breadcrumbs.col-12.mt-1.mt-sm-3.mt-lg-4[aria-label="breadcrumbs"]
+  ol.breadcrumb
+
+  li.breadcrumb-item
+    span
+      = link_to Spree.t(:home), spree.root_path
+  - if @taxon
+    - @taxon.ancestors.where.not(parent_id: nil).each do |ancestor|
+      li.breadcrumb-item
+        = ancestor.name
+    li.breadcrumb-item
+      = @taxon.name
+  - else
+    li.breadcrumb-item
+      = current_page_name
